@@ -33,11 +33,17 @@ function showList() {
                     4
                 )})</span>`
                 html += "</h5>"
-                html += `<p class="movie-description">${element.overview}</p>`
+                // Cut the description if is too long
+                html += `<p class="movie-description">${
+                    element.overview.length > 300
+                        ? element.overview.substr(0, 300) + "..."
+                        : element.overview
+                }</p>`
+                html += "</div>"
                 html += '<div class="movie-interactions">'
                 html += `<a href="javascript:void(0)" class="add-to-favs" data-id="${element.id}"><img src="./heart.png" alt="heart ico"/></button>`
                 html += `<a  href="javascript:void(0)" class="more-info" data-id="${element.id}">More info</a>`
-                html += "</div>"
+
                 html += "</div>"
                 html += "</li>"
                 moviesList.insertAdjacentHTML("beforeend", html)
@@ -62,7 +68,7 @@ input.addEventListener("keyup", function() {
         if (phrase.search(new RegExp(inputValue, "i")) < 0) {
             _this.style.display = "none"
         } else {
-            _this.style.display = "block"
+            _this.style.display = "flex"
         }
     }
 })

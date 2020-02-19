@@ -70,6 +70,7 @@ header img {
 /* Toolbar */
 #toolbar {
     margin: 30px 0;
+    border-bottom: 1px solid #a2a2a2;
 }
 #toolbar h5 {
     font-size: 20px;
@@ -85,4 +86,46 @@ header img {
     float: right;
 }
 
-/* Style for movie search */
+/* Movie item */
+
+#movies-list {
+    padding: 0;
+}
+
+.movie-item {
+    margin-bottom: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 200px;
+    background: #2a3a44;
+}
+.movie-item .movie-cover {
+    position: relative;
+    height: 100%;
+}
+.movie-cover .movie-rating {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 5px;
+    /* #4DAB61 */
+    background: rgba(77, 171, 91, 0.8);
+}
+.movie-item .movie-cover img {
+    height: 100%;
+    width: auto;
+}
+
+.movie-item .movie-body {
+    padding: 0 30px;
+}
+
+.movie-item .movie-description {
+    font-size: 12px;
+    line-height: 2em;
+    color: #a2a2a2;
+}
