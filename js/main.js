@@ -1,4 +1,9 @@
 /**
+ * Local Storage
+ */
+var favs = JSON.parse(localStorage.getItem("favs"))
+
+/**
  * DOM Elements
  */
 var moviesList = document.querySelector("#movies-list")
@@ -20,7 +25,9 @@ function showList() {
         .then(result => result.json())
         .then(data => {
             data.results.forEach(element => {
-                var html = '<li class="movie-item">'
+                var html = `<li class="movie-item ${
+                    favs.indexOf(element.id.toString()) > -1 ? "favs" : ""
+                }">`
                 html += '<div class="movie-cover">'
                 html += `<span class="movie-rating">${element.vote_average *
                     10}%</span>`
@@ -41,7 +48,13 @@ function showList() {
                 }</p>`
                 html += "</div>"
                 html += '<div class="movie-interactions">'
-                html += `<a href="javascript:void(0)" class="add-to-favs" data-id="${element.id}"><img src="./img/heart-ico.png" alt="heart ico"/></button>`
+                html += `<a href="javascript:void(0)" class="add-to-favs" onclick="addToFavs(this);" data-id="${
+                    element.id
+                }"><img src="${
+                    favs.indexOf(element.id.toString()) > -1
+                        ? "./img/heart-ico-green.png"
+                        : "./img/heart-ico.png"
+                }" alt="heart ico"/></button>`
                 html += `<a  href="javascript:void(0)" class="more-info" data-id="${element.id}">More info</a>`
 
                 html += "</div>"
@@ -72,3 +85,46 @@ input.addEventListener("keyup", function() {
         }
     }
 })
+
+/**
+ * Add to favs
+ */
+
+function addToFavs(identifier) {
+    var id = identifier.getAttribute("data-id")
+    // if ls is not initialized
+    if (!favs) {
+        localStorage.setItem("favs", JSON.stringify([id]))
+        return
+    }
+
+    // if item is already added, remove it and replace heart ico
+    if (favs.indexOf(id) > -1) {
+        favs.splice(favs.indexOf(id), 1)
+        identifier.closest(".movie-item").classList.remove("favs")
+        identifier.querySelector("img").src = "./img/heart-ico.png"
+    } else {
+        favs = [...favs, id]
+        identifier.closest(".movie-item").classList.add("favs")
+        identifier.querySelector("img").src = "./img/heart-ico-green.png"
+    }
+    // restore into ls
+    localStorage.setItem("favs", JSON.stringify(favs))
+}
+
+/**
+ * Filter Favs/All
+ */
+
+function showOnly(identifier) {
+    var filterItem = moviesList.querySelectorAll("li")
+    for (i = 0; i < filterItem.length; i++) {
+        var _this = filterItem[i]
+        var classes = _this.getAttribute("class").indexOf("favs")
+        if (classes > -1) {
+            _this.style.display = "flex"
+        } else {
+            _this.style.display = identifier.value == 2 ? "none" : "flex"
+        }
+    }
+}
