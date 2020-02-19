@@ -1,3 +1,88 @@
 /* Common */
+body {
+    margin: 0;
+    background: #22323d;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    max-width: 980px;
+    flex-direction: column;
+    padding: 0 30px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+/* Header */
+header {
+    display: flex;
+    height: 120px;
+    text-align: center;
+    background: #081b23;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 60px;
+    height: auto;
+}
+
+/* Sub Header */
+
+#sub-header h3 {
+    font-weight: normal;
+    color: #a2a2a2;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#sub-header .description {
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
+}
+
+#movie-search {
+    max-width: 500px;
+    margin: 30px auto 0;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 40px;
+    border: none;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    background: url(../img/search-ico.png) white no-repeat 95% center;
+    background-size: auto 50%;
+}
+
+/* Toolbar */
+#toolbar {
+    margin: 30px 0;
+}
+#toolbar h5 {
+    font-size: 20px;
+    margin: 0;
+}
+#toolbar p {
+    color: #a2a2a2;
+    font-size: 12px;
+    margin: 0;
+}
+
+#filters select {
+    float: right;
+}
 
 /* Style for movie search */
