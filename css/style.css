@@ -112,7 +112,6 @@ header img {
     font-size: 12px;
     padding: 10px;
     border-radius: 5px;
-    /* #4DAB61 */
     background: rgba(77, 171, 91, 0.8);
 }
 .movie-item .movie-cover img {
@@ -122,10 +121,50 @@ header img {
 
 .movie-item .movie-body {
     padding: 0 30px;
+    width: 55%;
 }
 
 .movie-item .movie-description {
     font-size: 12px;
     line-height: 2em;
     color: #a2a2a2;
+}
+
+.movie-interactions {
+    border-left: 1px solid #a2a2a2;
+    display: flex;
+    padding: 20px 0 20px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-interactions .add-to-favs {
+    width: 40px;
+    height: 40px;
+    display: block;
+    border-radius: 5px;
+    background: #33434d;
+    text-align: center;
+    line-height: 3.4em;
+    border: 2px solid #33434d;
+    transition: border 0.3s;
+}
+.movie-interactions .add-to-favs:hover {
+    border-color: #4dab61;
+}
+
+.movie-interactions .add-to-favs img {
+    opacity: 0.5;
+    width: 70%;
+}
+
+.movie-interactions .more-info {
+    background: #4dab61;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    margin-left: 10px;
+    line-height: 3.4;
+    padding: 0 20px;
+    border-radius: 5px;
 }

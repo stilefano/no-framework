@@ -41,7 +41,7 @@ function showList() {
                 }</p>`
                 html += "</div>"
                 html += '<div class="movie-interactions">'
-                html += `<a href="javascript:void(0)" class="add-to-favs" data-id="${element.id}"><img src="./heart.png" alt="heart ico"/></button>`
+                html += `<a href="javascript:void(0)" class="add-to-favs" data-id="${element.id}"><img src="./img/heart-ico.png" alt="heart ico"/></button>`
                 html += `<a  href="javascript:void(0)" class="more-info" data-id="${element.id}">More info</a>`
 
                 html += "</div>"
